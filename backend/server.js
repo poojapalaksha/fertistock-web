@@ -15,7 +15,7 @@ const fertilizerRoute = require('./routes/fertilizers');
 const salesRoute = require('./routes/sales');
 
 // ===== Import Models =====
-const User = require('./models/User');
+const User = require('./models/user');
 const Fertilizer = require('./models/Fertilizer');
 const notificationRoutes = require('./routes/notifications');
 
