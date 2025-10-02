@@ -50,20 +50,28 @@ app.get('/api/fertilizers/all', async (req, res) => {
   }
 });
 
-// Define the MongoDB connection string using the environment variable
-// CRITICAL FIX: Uses the MONGODB_URI environment variable on Render, falls back to localhost for local development.
-const MONGODB_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/fertistock';
-
-
 // ===== MongoDB Connection and Server Start =====
-mongoose.connect(MONGODB_URI) // <-- This line uses the cloud connection string
+mongoose.connect('mongodb://localhost:27017/fertistock', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 .then(async () => {
   console.log('MongoDB connected');
 
   // ===== Create Default Admin User if Not Exists =====
   const defaultAdmin = await User.findOne({ userId: 'admin' });
 
-  // ... (Your commented-out admin creation logic)
+  // if (!defaultAdmin) {
+  //   const newAdmin = new User({
+  //     userId: 'admin',
+  //     password: 'admin123', // 🔐 Hash this in production
+  //     role: 'admin',
+  //   });
+  //   await newAdmin.save();
+  //   console.log('Default admin user created');
+  // } else {
+  //   console.log('Default admin user already exists');
+  // }
 
   // ===== Start Server =====
   const PORT = process.env.PORT || 5000;
@@ -72,5 +80,5 @@ mongoose.connect(MONGODB_URI) // <-- This line uses the cloud connection string
   });
 })
 .catch((err) => {
-  console.error('MongoDB connection error:', err); 
+  console.error('MongoDB connection error:', err);
 });
