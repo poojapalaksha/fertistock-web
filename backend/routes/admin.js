@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const User = require('../models/User');
+const User = require('../models/user');
 
 // MongoDB connection
 mongoose.connect('mongodb://localhost:27017/fertistock', {
