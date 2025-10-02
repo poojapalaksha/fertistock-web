@@ -13,13 +13,17 @@ import NotificationsPage from './components/NotificationsPage';
 import BackupPage from './components/BackupPage';
 import SignInPage from './components/SignInPage';
 import Invoice from './components/Invoice';
-import Report from './components/Report'; // Import the Report component
+import Report from './components/Report';
 import ReportPage from './components/ReportPage';
-
 
 import './App.css';
 
+// ✅ Add your backend link here
+export const API_BASE_URL = "https://fertistock-web-bkdg-poojapalakshas-projects.vercel.app";
+
 function App() {
+  console.log("✅ Using Backend API:", API_BASE_URL);
+
   return (
     <Router>
       <Routes>
