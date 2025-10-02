@@ -1,0 +1,73 @@
+# ------------------------------------
+# 1. DEPENDENCIES
+# ------------------------------------
+# Node modules directory
+/node_modules
+
+# ------------------------------------
+# 2. SECURITY AND CREDENTIALS (CRUCIAL)
+# ------------------------------------
+# Ignore environment variables containing API keys, secrets, and DB connection strings
+.env
+.env.local
+.env.development
+.env.production
+
+# Private keys (if used locally for testing SSL or tokens)
+*.key
+*.pem
+
+# ------------------------------------
+# 3. LOGS, CACHE, AND ARTIFACTS
+# ------------------------------------
+# NPM install logs and general logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Cache and temporary directories
+.npm
+.cache
+.pnp
+.pnp.js
+
+# Testing coverage reports
+/coverage
+
+# ------------------------------------
+# 4. BUILD OUTPUT & RUNTIME
+# ------------------------------------
+# Ignore transpiled JavaScript files if you are using TypeScript or Babel 
+# (e.g., if your source code is in 'src' and output goes to 'dist' or 'build')
+/dist
+/build
+/output
+
+# Process manager files (e.g., PM2, forever)
+pm2-logs
+*.pid
+
+# ------------------------------------
+# 5. LOCAL DATA AND DATABASE
+# ------------------------------------
+# Ignore local database files or folders storing data
+/data
+/db
+*.sqlite
+*.sqlite3
+
+# ------------------------------------
+# 6. OS AND EDITOR FILES
+# ------------------------------------
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# VSCode editor files (ignore user-specific settings)
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/*.code-workspace
